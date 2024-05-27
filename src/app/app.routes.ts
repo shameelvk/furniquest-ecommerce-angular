@@ -5,6 +5,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductComponent } from './pages/product/product.component';
+import { ProductdetailsComponent } from './pages/productdetails/productdetails.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,4 +14,6 @@ export const routes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'about-us', component: AboutComponent },
     { path: 'products', component: ProductComponent },
+    { path: 'products/:id', component: ProductdetailsComponent },
+
 ];

@@ -1,3 +1,18 @@
 <app-productnavigation></app-productnavigation>
 <app-banner></app-banner>
 <app-offerimg></app-offerimg>
+<div class="container py-4">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center mb-4">Products</h2>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        @for (pd of products; track pd.id) {
+            <div class="col-md-4">
+                <app-card [product]="pd"></app-card>
+              </div>
+          }
+      
+    </div>
+    </div>

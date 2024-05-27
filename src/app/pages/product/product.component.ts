@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../../units/card/card.component';
 import { ProductnavigationComponent } from '../../units/productnavigation/productnavigation.component';
 import { ApiService } from '../../api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -10,20 +11,30 @@ import { ApiService } from '../../api.service';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
+  products: any = [];
+  filteredProducts: any = [];
 
-  constructor(private api:ApiService){
+  constructor(private api: ApiService, private route: ActivatedRoute) { }
 
-  }
-  products:any;
-
-  ngOnInit():void{
+  ngOnInit(): void {
     this.api.getProducts().subscribe((data: any) => {
-    this.products=data.data;
-    
-   })
+      this.products = data.data;
+      this.filterProducts();
+    });
+
    
-   
-    
-   }
+    this.route.queryParams.subscribe(params => {
+      this.filterProducts();
+    });
+  }
+
+  filterProducts(): void {
+    const categoryId = this.route.snapshot.queryParams['cat'];
+    if (categoryId) {
+      this.filteredProducts = this.products.filter((p: any) => p.categories[0].id == categoryId);
+    } else {
+      this.filteredProducts = this.products;
+    }
+  }
 }

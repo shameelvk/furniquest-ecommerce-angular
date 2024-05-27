@@ -6,7 +6,7 @@
   </div>
 </div>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    @for (pd of products; track pd.id) {
+    @for (pd of filteredProducts; track pd.id) {
         <div class="col-md-4">
             <app-card [product]="pd"></app-card>
           </div>
