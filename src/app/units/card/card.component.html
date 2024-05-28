@@ -5,6 +5,6 @@
       <p class='card-text card-description'>{{ product.description.slice(3,-4)}}</p>
       <p class="card-text">MRP:₹{{product.price.raw}}<del class="text-danger ms-2">{{(product.price.raw * 1.2).toFixed(2)}}</del></p>
       <p class='deliver'><strong>Free Delivery By FurniQuest</strong></p>
-      <a routerLink="{{product.id}}" class="btn btn-warning">View Product</a>
+      <a routerLink="/products/{{product.id}}" class="btn btn-warning">View Product</a>
     </div>
   </div>

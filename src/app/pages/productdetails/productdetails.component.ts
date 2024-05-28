@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ApiService } from '../../api.service';
 })
 export class ProductdetailsComponent {
 
-  constructor(private routerId:ActivatedRoute,private api:ApiService){}
+  constructor(private routerId:ActivatedRoute,private api:ApiService, private router: Router,){}
   data:any=[];
   ngOnInit(){
     this.api.getProducts().subscribe((res:any)=>{
@@ -30,6 +30,14 @@ export class ProductdetailsComponent {
       
     })
 
+  }
+
+  addProductToCart(productId: string) {
+    this.api.addToCart(productId).subscribe(response => {
+      this.router.navigate(['/cart']);
+    }, error => {
+      console.error('Error adding product to cart:', error);
+    });
   }
 
 

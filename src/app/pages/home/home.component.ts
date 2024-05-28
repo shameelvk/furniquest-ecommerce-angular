@@ -5,11 +5,12 @@ import { OfferimgComponent } from '../../units/offerimg/offerimg.component';
 import { ProductComponent } from '../product/product.component';
 import { ApiService } from '../../api.service';
 import { CardComponent } from '../../units/card/card.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProductnavigationComponent,BannerComponent,OfferimgComponent,ProductComponent,CardComponent],
+  imports: [ProductnavigationComponent,BannerComponent,OfferimgComponent,CardComponent,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

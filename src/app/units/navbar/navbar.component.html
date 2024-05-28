@@ -6,8 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <li routerLink="" class="nav-item">
-                    <a class="nav-link">Home</a>
+                <li  class="nav-item">
+                    <a routerLink="" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="/products"  class="nav-link">Products</a>
@@ -18,14 +18,13 @@
             </ul>
             <form class="d-flex mx-auto my-2 my-lg-0 nav-search">
                 <input
+                    #searchInput
                     class="form-control me-2 search-input"
                     type="search"
                     placeholder="Search Products"
                     aria-label="Search"
-                   
                 />
-                <a  class="btn  search-button">Search</a>
-                
+                <button type="button" class="btn search-button" (click)="onSearch(searchInput.value)">Search</button>
             </form>
 
             <ul class="navbar-nav">
@@ -36,7 +35,7 @@
                     <a routerLink="/login" class="nav-link">Login / Signup</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/" class="nav-link cart-nav">
+                    <a routerLink="/cart" class="nav-link cart-nav">
                         <img src="https://github.com/shameelvk/furniquest-ecommerce-react/blob/master/src/assets/cart_icon.png?raw=true" alt="" style="width: 2vw;" class='cart-img' />
                         <div class="cart-count">
                            10

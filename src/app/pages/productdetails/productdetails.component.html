@@ -9,7 +9,8 @@
                 {{ data.description.slice(3,-4) }}
             </p>
             <p>Price: ₹{{ data.price.raw }}</p>
-            <button class="btn btn-warning" >Add to Cart</button>
+            <button (click)="addProductToCart(data.id)" class="btn btn-warning">Add to Cart</button>
+        
         </div>
 </div>
 </div>

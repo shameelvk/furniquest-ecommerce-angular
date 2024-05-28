@@ -1,0 +1,21 @@
+.pay-btn{
+   
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.promocode-input{
+    
+    background: transparent;
+    font-size: 16px;
+    
+}
+.promocode-btn{
+    font-size: 16px;
+    background: black;
+    color: white;
+    cursor: pointer;
+}

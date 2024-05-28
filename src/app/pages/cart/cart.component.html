@@ -1,0 +1,61 @@
+<div class='container p-2'>
+    <div class='row m-2'>
+        <div class='col-12  table-responsive'>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col text-center">Actions</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (pd of cartData.line_items; track pd.id) {
+                    <tr >
+                        <td>
+                          <img [src]="pd.image.url" style="width: 100px;" />
+                        </td>
+                        <td class='p-2'>{{ pd.name }}</td>
+                        <td>{{ pd.price.formatted_with_symbol }}</td>
+                        <td>{{ pd.quantity }}</td>
+                        <td>
+                          <button class="btn btn-dark mx-2" (click)="decreaseCartItemQuantity(pd.id, pd.quantity + 1)">+</button>
+                          <button class="btn btn-dark" (click)="decreaseCartItemQuantity(pd.id, pd.quantity - 1)">-</button>
+                        </td>
+                        <td>{{ pd.line_total.formatted_with_symbol }}</td>
+                        <td><button class="btn btn-danger" (click)="removeItem(pd.id)">Remove</button></td>
+                      </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class='row align-items-center mt-3'>
+            <div class="col-md-6 col-12">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title mb-2 ">Cart Total Details</h5>
+                        <hr />
+                        <p class=''>Subtotal: ₹{{cartData.subtotal.raw}}</p>
+                        <hr />
+                        <p>Shipping Fee: Free</p>
+                        <hr />
+                        <p>Total: ₹{{cartData.subtotal.raw}}</p>
+                        <hr />
+                        <button class="btn btn-warning btn-block pay-btn">Proceed to Pay</button>
+                        <button class="btn btn-danger btn-block pay-btn mx-2" (click)="clearCart()" >Clear All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="input-group">
+                    <input type="text" class="form-control promocode-input" placeholder="Enter Promo Code" />
+                    <button class="btn btn-secondary promocode-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
